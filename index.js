@@ -7,6 +7,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json())
 app.use("/user", routes);
-app.use (cors({credentials: true, origin: true}));
+app.all('/*', function(_, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
 
 app.listen(port, ()=>console.log(`App running: port ${port}...`));
