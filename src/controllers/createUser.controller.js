@@ -7,7 +7,7 @@ const createUserController = async (req, res)=>{
 
     const user = await createUserService(email, name, password)
 
-    return res.json(user);
+    return res.status(200).json(user);
 
 }
 

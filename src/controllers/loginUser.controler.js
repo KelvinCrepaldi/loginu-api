@@ -5,7 +5,7 @@ const loginUserController = (req, res) =>{
     
     const userLogin = loginUserService(email, password);
 
-    return res.json(userLogin);
+    return res.status(200).json(userLogin);
 }
 
 export default loginUserController;
